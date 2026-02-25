@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drogaria Droga X</title>
+    
+    <!-- Tailwind CSS (via CDN para sites estáticos) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Configurações básicas de fonte */
+        body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-800">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 shadow-md bg-[#E3000F]">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-2 h-12">
+                <span class="text-white font-bold tracking-tight text-4xl" style="font-family: Arial, sans-serif;">
+                    Droga
+                </span>
+                <svg viewBox="0 0 100 100" class="h-10 w-10 overflow-visible mt-1">
+                    <g transform="translate(50, 50)">
+                        <rect x="-20" y="-40" width="40" height="80" rx="20" ry="20" transform="rotate(45)" fill="none" stroke="#002B5E" stroke-width="16" />
+                        <rect x="-20" y="-40" width="40" height="80" rx="20" ry="20" transform="rotate(-45)" fill="none" stroke="#FFFFFF" stroke-width="16" />
+                        <path d="M -15,-15 L 15,15" stroke="#002B5E" stroke-width="16" stroke-linecap="round" />
+                    </g>
+                </svg>
+            </div>
+            
+            <!-- Link Instagram -->
+            <a href="https://instagram.com/drogariadrogax" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-white hover:text-gray-200 transition-colors font-medium bg-black/10 px-4 py-2 rounded-full">
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+                @drogariadrogax
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="text-white pb-16 pt-8 px-4 border-t border-white/20 bg-[#E3000F]">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-6">
+                Sua saúde e bem-estar sempre em primeiro lugar.
+            </h1>
+            <p class="text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+                A Drogaria Droga X está presente em Buri, Campina do Monte Alegre e Angatuba para atender você com rapidez, preço justo e o melhor atendimento.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-sm md:text-base font-medium opacity-90">
+                <div class="flex items-center gap-2"><i data-lucide="heart-pulse" class="w-5 h-5"></i> Preço Justo</div>
+                <div class="flex items-center gap-2"><i data-lucide="clock" class="w-5 h-5"></i> Atendimento Rápido</div>
+                <div class="flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5"></i> Confiança</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATIONS / WHATSAPP SECTION -->
+    <section class="max-w-6xl mx-auto px-4 py-16 -mt-10 relative z-10">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Nossas Unidades</h2>
+            <p class="text-gray-600">Selecione a loja mais próxima e faça seu pedido pelo WhatsApp.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Unidade 1: Buri -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow flex flex-col h-full">
+                <div class="p-4 text-white text-center border-b-4 border-[#E3000F] bg-[#002B5E]">
+                    <h3 class="text-xl font-bold flex justify-center items-center gap-2">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i> Buri-SP
+                    </h3>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start gap-3 mb-4 text-gray-600">
+                            <i data-lucide="map-pin" class="text-red-600 shrink-0 mt-1 w-5 h-5"></i>
+                            <p class="leading-relaxed">Rua Coronel Licínio, 308</p>
+                        </div>
+                        <div class="flex items-center gap-3 mb-8 text-gray-600">
+                            <i data-lucide="phone" class="text-red-600 shrink-0 w-5 h-5"></i>
+                            <p class="font-semibold text-lg">(15) 99810-9068</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5515998109068" target="_blank" rel="noopener noreferrer" class="w-full flex justify-center items-center gap-2 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg bg-[#25D366]">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i> Pedir no WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Unidade 2: Campina do Monte Alegre -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow flex flex-col h-full">
+                <div class="p-4 text-white text-center border-b-4 border-[#E3000F] bg-[#002B5E]">
+                    <h3 class="text-xl font-bold flex justify-center items-center gap-2">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i> Campina do Monte Alegre-SP
+                    </h3>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start gap-3 mb-4 text-gray-600">
+                            <i data-lucide="map-pin" class="text-red-600 shrink-0 mt-1 w-5 h-5"></i>
+                            <p class="leading-relaxed">Rua Rocha Miranda, 477</p>
+                        </div>
+                        <div class="flex items-center gap-3 mb-8 text-gray-600">
+                            <i data-lucide="phone" class="text-red-600 shrink-0 w-5 h-5"></i>
+                            <p class="font-semibold text-lg">(15) 99824-8628</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5515998248628" target="_blank" rel="noopener noreferrer" class="w-full flex justify-center items-center gap-2 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg bg-[#25D366]">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i> Pedir no WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Unidade 3: Angatuba -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow flex flex-col h-full">
+                <div class="p-4 text-white text-center border-b-4 border-[#E3000F] bg-[#002B5E]">
+                    <h3 class="text-xl font-bold flex justify-center items-center gap-2">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i> Angatuba-SP
+                    </h3>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start gap-3 mb-4 text-gray-600">
+                            <i data-lucide="map-pin" class="text-red-600 shrink-0 mt-1 w-5 h-5"></i>
+                            <p class="leading-relaxed">Rua José Franco Araújo, 505</p>
+                        </div>
+                        <div class="flex items-center gap-3 mb-8 text-gray-600">
+                            <i data-lucide="phone" class="text-red-600 shrink-0 w-5 h-5"></i>
+                            <p class="font-semibold text-lg">(15) 99856-4842</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5515998564842" target="_blank" rel="noopener noreferrer" class="w-full flex justify-center items-center gap-2 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg bg-[#25D366]">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i> Pedir no WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-white mt-12 py-10 bg-[#E3000F]">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <div class="flex items-center gap-2 h-8 opacity-90 scale-75 origin-left md:origin-left origin-center">
+                    <span class="text-white font-bold tracking-tight text-4xl" style="font-family: Arial, sans-serif;">Droga</span>
+                    <svg viewBox="0 0 100 100" class="h-10 w-10 overflow-visible mt-1">
+                        <g transform="translate(50, 50)">
+                            <rect x="-20" y="-40" width="40" height="80" rx="20" ry="20" transform="rotate(45)" fill="none" stroke="#002B5E" stroke-width="16" />
+                            <rect x="-20" y="-40" width="40" height="80" rx="20" ry="20" transform="rotate(-45)" fill="none" stroke="#FFFFFF" stroke-width="16" />
+                            <path d="M -15,-15 L 15,15" stroke="#002B5E" stroke-width="16" stroke-linecap="round" />
+                        </g>
+                    </svg>
+                </div>
+                <p class="text-sm opacity-80 mt-2 text-center md:text-left">© 2026 Drogaria Droga X. Todos os direitos reservados.</p>
+            </div>
+
+            <div class="flex flex-col items-center md:items-end gap-3">
+                <a href="https://www.drogariadrogax.com.br" class="flex items-center gap-2 text-lg font-medium hover:underline">
+                    <div class="bg-white rounded-full p-0.5 text-[#002B5E]">
+                        <i data-lucide="globe" class="w-5 h-5"></i>
+                    </div>
+                    www.drogariadrogax.com.br
+                </a>
+                <a href="https://instagram.com/drogariadrogax" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm opacity-90 hover:opacity-100 transition-opacity">
+                    <i data-lucide="instagram" class="w-4 h-4"></i> Siga nosso Instagram
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Script para renderizar os ícones -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
