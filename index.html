@@ -3,185 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drogaria Droga X</title>
-    
-    <!-- Tailwind CSS (via CDN para sites estáticos) -->
+    <title>Drogaria Droga X – Buri, Campina do Monte Alegre e Angatuba</title>
+    <meta name="description" content="Drogaria Droga X: farmácia com preço justo, atendimento rápido e confiança. Presente em Buri, Campina do Monte Alegre e Angatuba-SP. Faça seu pedido pelo WhatsApp!">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Drogaria Droga X">
+    <meta property="og:description" content="Sua saúde e bem-estar sempre em primeiro lugar. Presente em Buri, Campina do Monte Alegre e Angatuba-SP.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.drogariadrogax.com.br">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Ícones Lucide -->
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Configurações básicas de fonte */
-        body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .stat-card {
+            transition: transform 0.2s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .whatsapp-float.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50 text-gray-800">
 
     <!-- HEADER -->
     <header class="sticky top-0 z-50 shadow-md bg-[#E3000F]">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+
             <!-- Logo -->
-            <div class="flex items-center gap-2 h-12">
-                <span class="text-white font-bold tracking-tight text-4xl" style="font-family: Arial, sans-serif;">
-                    Droga
-                </span>
-                <svg viewBox="0 0 100 100" class="h-10 w-10 overflow-visible mt-1">
+            <a href="#" class="flex items-center gap-2 h-12">
+                <span class="text-white font-bold tracking-tight text-4xl" style="font-family: Arial, sans-serif;">Droga</span>
+                <svg viewBox="0 0 100 100" class="h-10 w-10 overflow-visible mt-1" aria-hidden="true">
                     <g transform="translate(50, 50)">
                         <rect x="-20" y="-40" width="40" height="80" rx="20" ry="20" transform="rotate(45)" fill="none" stroke="#002B5E" stroke-width="16" />
                         <rect x="-20" y="-40" width="40" height="80" rx="20" ry="20" transform="rotate(-45)" fill="none" stroke="#FFFFFF" stroke-width="16" />
                         <path d="M -15,-15 L 15,15" stroke="#002B5E" stroke-width="16" stroke-linecap="round" />
                     </g>
                 </svg>
-            </div>
-            
-            <!-- Link Instagram -->
-            <a href="https://instagram.com/drogariadrogax" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-white hover:text-gray-200 transition-colors font-medium bg-black/10 px-4 py-2 rounded-full">
-                <i data-lucide="instagram" class="w-5 h-5"></i>
-                @drogariadrogax
+            </a>
+
+            <!-- Nav (desktop) -->
+            <nav class="hidden md:flex items-center gap-6 text-white font-medium text-sm">
+                <a href="#sobre" class="hover:text-white/80 transition-colors">Sobre</a>
+                <a href="#unidades" class="hover:text-white/80 transition-colors">Unidades</a>
+                <a href="https://instagram.com/drogariadrogax" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center gap-2 bg-black/15 hover:bg-black/25 px-4 py-2 rounded-full transition-colors">
+                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                    @drogariadrogax
+                </a>
+            </nav>
+
+            <!-- Mobile Instagram -->
+            <a href="https://instagram.com/drogariadrogax" target="_blank" rel="noopener noreferrer"
+               class="md:hidden flex items-center gap-2 text-white font-medium bg-black/15 px-3 py-2 rounded-full text-sm">
+                <i data-lucide="instagram" class="w-4 h-4"></i>
+                <span class="hidden sm:inline">@drogariadrogax</span>
             </a>
         </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="text-white pb-16 pt-8 px-4 border-t border-white/20 bg-[#E3000F]">
+    <section class="text-white pb-24 pt-14 px-4 bg-[#E3000F] relative">
         <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-3xl md:text-5xl font-bold mb-6">
-                Sua saúde e bem-estar sempre em primeiro lugar.
+            <div class="inline-flex items-center gap-2 bg-white/15 text-white text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                Farmácia de confiança
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+                Sua saúde e bem-estar<br class="hidden md:block"> sempre em primeiro lugar.
             </h1>
-            <p class="text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+            <p class="text-lg md:text-xl opacity-90 mb-10 max-w-2xl mx-auto">
                 A Drogaria Droga X está presente em Buri, Campina do Monte Alegre e Angatuba para atender você com rapidez, preço justo e o melhor atendimento.
             </p>
-            
-            <div class="flex flex-wrap justify-center gap-6 text-sm md:text-base font-medium opacity-90">
-                <div class="flex items-center gap-2"><i data-lucide="heart-pulse" class="w-5 h-5"></i> Preço Justo</div>
-                <div class="flex items-center gap-2"><i data-lucide="clock" class="w-5 h-5"></i> Atendimento Rápido</div>
-                <div class="flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5"></i> Confiança</div>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <div class="flex items-center gap-2 bg-white/15 px-5 py-2.5 rounded-full text-sm font-semibold">
+                    <i data-lucide="tag" class="w-4 h-4"></i> Preço Justo
+                </div>
+                <div class="flex items-center gap-2 bg-white/15 px-5 py-2.5 rounded-full text-sm font-semibold">
+                    <i data-lucide="clock" class="w-4 h-4"></i> Atendimento Rápido
+                </div>
+                <div class="flex items-center gap-2 bg-white/15 px-5 py-2.5 rounded-full text-sm font-semibold">
+                    <i data-lucide="heart-pulse" class="w-4 h-4"></i> Produtos de Qualidade
+                </div>
+            </div>
+
+            <a href="#unidades"
+               class="inline-flex items-center gap-2 bg-white text-[#E3000F] font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all text-base">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                Encontre a unidade mais próxima
+            </a>
+        </div>
+
+        <!-- Wave divider -->
+        <div class="absolute bottom-0 left-0 right-0 overflow-hidden leading-none">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+                 style="display:block; width:100%; height:60px;">
+                <path d="M0,40 C360,0 1080,80 1440,20 L1440,60 L0,60 Z" fill="#f9fafb"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- SOBRE SECTION -->
+    <section id="sobre" class="max-w-6xl mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-3">Por que escolher a Droga X?</h2>
+            <p class="text-gray-500 max-w-xl mx-auto">Cuidando da saúde das famílias do interior paulista com dedicação, responsabilidade e preço justo.</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="stat-card bg-white rounded-2xl p-8 text-center shadow-md border border-gray-100">
+                <div class="inline-flex items-center justify-center w-14 h-14 bg-red-50 text-[#E3000F] rounded-2xl mb-4">
+                    <i data-lucide="store" class="w-7 h-7"></i>
+                </div>
+                <div class="text-4xl font-extrabold text-[#002B5E] mb-1">3</div>
+                <div class="text-gray-600 font-medium">Unidades no interior de SP</div>
+            </div>
+            <div class="stat-card bg-white rounded-2xl p-8 text-center shadow-md border border-gray-100">
+                <div class="inline-flex items-center justify-center w-14 h-14 bg-red-50 text-[#E3000F] rounded-2xl mb-4">
+                    <i data-lucide="users" class="w-7 h-7"></i>
+                </div>
+                <div class="text-4xl font-extrabold text-[#002B5E] mb-1">+10k</div>
+                <div class="text-gray-600 font-medium">Clientes atendidos</div>
+            </div>
+            <div class="stat-card bg-white rounded-2xl p-8 text-center shadow-md border border-gray-100">
+                <div class="inline-flex items-center justify-center w-14 h-14 bg-red-50 text-[#E3000F] rounded-2xl mb-4">
+                    <i data-lucide="package" class="w-7 h-7"></i>
+                </div>
+                <div class="text-4xl font-extrabold text-[#002B5E] mb-1">+5k</div>
+                <div class="text-gray-600 font-medium">Produtos disponíveis</div>
+            </div>
+        </div>
+
+        <!-- Categorias de produtos -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                <div class="shrink-0 w-10 h-10 bg-blue-50 text-[#002B5E] rounded-xl flex items-center justify-center">
+                    <i data-lucide="pill" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-800 text-sm mb-1">Medicamentos</h4>
+                    <p class="text-xs text-gray-500">Genéricos, similares e de referência</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                <div class="shrink-0 w-10 h-10 bg-green-50 text-green-600 rounded-xl flex items-center justify-center">
+                    <i data-lucide="sparkles" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-800 text-sm mb-1">Dermocosméticos</h4>
+                    <p class="text-xs text-gray-500">Cuidados com pele e cabelo</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                <div class="shrink-0 w-10 h-10 bg-orange-50 text-orange-500 rounded-xl flex items-center justify-center">
+                    <i data-lucide="heart" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-800 text-sm mb-1">Higiene & Beleza</h4>
+                    <p class="text-xs text-gray-500">Produtos para o dia a dia</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                <div class="shrink-0 w-10 h-10 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center">
+                    <i data-lucide="baby" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-800 text-sm mb-1">Bebê & Mamãe</h4>
+                    <p class="text-xs text-gray-500">Fraldas, pomadas e muito mais</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- LOCATIONS / WHATSAPP SECTION -->
-    <section class="max-w-6xl mx-auto px-4 py-16 -mt-10 relative z-10">
-        <div class="text-center mb-10">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">Nossas Unidades</h2>
-            <p class="text-gray-600">Selecione a loja mais próxima e faça seu pedido pelo WhatsApp.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Unidade 1: Buri -->
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow flex flex-col h-full">
-                <div class="p-4 text-white text-center border-b-4 border-[#E3000F] bg-[#002B5E]">
-                    <h3 class="text-xl font-bold flex justify-center items-center gap-2">
-                        <i data-lucide="map-pin" class="w-5 h-5"></i> Buri-SP
-                    </h3>
-                </div>
-                <div class="p-6 flex-grow flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-start gap-3 mb-4 text-gray-600">
-                            <i data-lucide="map-pin" class="text-red-600 shrink-0 mt-1 w-5 h-5"></i>
-                            <p class="leading-relaxed">Rua Coronel Licínio, 308</p>
-                        </div>
-                        <div class="flex items-center gap-3 mb-8 text-gray-600">
-                            <i data-lucide="phone" class="text-red-600 shrink-0 w-5 h-5"></i>
-                            <p class="font-semibold text-lg">(15) 99810-9068</p>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/5515998109068" target="_blank" rel="noopener noreferrer" class="w-full flex justify-center items-center gap-2 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg bg-[#25D366]">
-                        <i data-lucide="message-circle" class="w-6 h-6"></i> Pedir no WhatsApp
-                    </a>
-                </div>
+    <!-- UNIDADES SECTION -->
+    <section id="unidades" class="bg-gray-100 px-4 py-16">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800 mb-3">Nossas Unidades</h2>
+                <p class="text-gray-500">Selecione a loja mais próxima e faça seu pedido pelo WhatsApp.</p>
             </div>
 
-            <!-- Unidade 2: Campina do Monte Alegre -->
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow flex flex-col h-full">
-                <div class="p-4 text-white text-center border-b-4 border-[#E3000F] bg-[#002B5E]">
-                    <h3 class="text-xl font-bold flex justify-center items-center gap-2">
-                        <i data-lucide="map-pin" class="w-5 h-5"></i> Campina do Monte Alegre-SP
-                    </h3>
-                </div>
-                <div class="p-6 flex-grow flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-start gap-3 mb-4 text-gray-600">
-                            <i data-lucide="map-pin" class="text-red-600 shrink-0 mt-1 w-5 h-5"></i>
-                            <p class="leading-relaxed">Rua Rocha Miranda, 477</p>
-                        </div>
-                        <div class="flex items-center gap-3 mb-8 text-gray-600">
-                            <i data-lucide="phone" class="text-red-600 shrink-0 w-5 h-5"></i>
-                            <p class="font-semibold text-lg">(15) 99824-8628</p>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/5515998248628" target="_blank" rel="noopener noreferrer" class="w-full flex justify-center items-center gap-2 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg bg-[#25D366]">
-                        <i data-lucide="message-circle" class="w-6 h-6"></i> Pedir no WhatsApp
-                    </a>
-                </div>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            <!-- Unidade 3: Angatuba -->
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow flex flex-col h-full">
-                <div class="p-4 text-white text-center border-b-4 border-[#E3000F] bg-[#002B5E]">
-                    <h3 class="text-xl font-bold flex justify-center items-center gap-2">
-                        <i data-lucide="map-pin" class="w-5 h-5"></i> Angatuba-SP
-                    </h3>
-                </div>
-                <div class="p-6 flex-grow flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-start gap-3 mb-4 text-gray-600">
-                            <i data-lucide="map-pin" class="text-red-600 shrink-0 mt-1 w-5 h-5"></i>
-                            <p class="leading-relaxed">Rua José Franco Araújo, 505</p>
-                        </div>
-                        <div class="flex items-center gap-3 mb-8 text-gray-600">
-                            <i data-lucide="phone" class="text-red-600 shrink-0 w-5 h-5"></i>
-                            <p class="font-semibold text-lg">(15) 99856-4842</p>
-                        </div>
+                <!-- Unidade 1: Buri -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                    <div class="p-5 text-white text-center bg-[#002B5E]">
+                        <h3 class="text-xl font-bold flex justify-center items-center gap-2">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-[#E3000F]"></i> Buri-SP
+                        </h3>
                     </div>
-                    <a href="https://wa.me/5515998564842" target="_blank" rel="noopener noreferrer" class="w-full flex justify-center items-center gap-2 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg bg-[#25D366]">
-                        <i data-lucide="message-circle" class="w-6 h-6"></i> Pedir no WhatsApp
-                    </a>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-start gap-3 text-gray-600">
+                                <i data-lucide="map-pin" class="text-[#E3000F] shrink-0 mt-0.5 w-5 h-5"></i>
+                                <p class="text-sm leading-relaxed">Rua Coronel Licínio, 308</p>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="phone" class="text-[#E3000F] shrink-0 w-5 h-5"></i>
+                                <p class="font-semibold">(15) 99810-9068</p>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-500">
+                                <i data-lucide="clock" class="text-[#E3000F] shrink-0 w-5 h-5"></i>
+                                <p class="text-sm">Seg–Sex 7h–22h · Sáb 7h–20h · Dom 8h–14h</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/5515998109068" target="_blank" rel="noopener noreferrer"
+                           class="w-full flex justify-center items-center gap-2 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg bg-[#25D366] hover:bg-[#20BD5A]">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i> Pedir no WhatsApp
+                        </a>
+                    </div>
                 </div>
-            </div>
 
+                <!-- Unidade 2: Campina do Monte Alegre -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                    <div class="p-5 text-white text-center bg-[#002B5E]">
+                        <h3 class="text-xl font-bold flex justify-center items-center gap-2">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-[#E3000F]"></i> Campina do Monte Alegre-SP
+                        </h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-start gap-3 text-gray-600">
+                                <i data-lucide="map-pin" class="text-[#E3000F] shrink-0 mt-0.5 w-5 h-5"></i>
+                                <p class="text-sm leading-relaxed">Rua Rocha Miranda, 477</p>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="phone" class="text-[#E3000F] shrink-0 w-5 h-5"></i>
+                                <p class="font-semibold">(15) 99824-8628</p>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-500">
+                                <i data-lucide="clock" class="text-[#E3000F] shrink-0 w-5 h-5"></i>
+                                <p class="text-sm">Seg–Sex 7h–22h · Sáb 7h–20h · Dom 8h–14h</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/5515998248628" target="_blank" rel="noopener noreferrer"
+                           class="w-full flex justify-center items-center gap-2 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg bg-[#25D366] hover:bg-[#20BD5A]">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i> Pedir no WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Unidade 3: Angatuba -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col h-full">
+                    <div class="p-5 text-white text-center bg-[#002B5E]">
+                        <h3 class="text-xl font-bold flex justify-center items-center gap-2">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-[#E3000F]"></i> Angatuba-SP
+                        </h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-start gap-3 text-gray-600">
+                                <i data-lucide="map-pin" class="text-[#E3000F] shrink-0 mt-0.5 w-5 h-5"></i>
+                                <p class="text-sm leading-relaxed">Rua José Franco Araújo, 505</p>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-600">
+                                <i data-lucide="phone" class="text-[#E3000F] shrink-0 w-5 h-5"></i>
+                                <p class="font-semibold">(15) 99856-4842</p>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-500">
+                                <i data-lucide="clock" class="text-[#E3000F] shrink-0 w-5 h-5"></i>
+                                <p class="text-sm">Seg–Sex 7h–22h · Sáb 7h–20h · Dom 8h–14h</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/5515998564842" target="_blank" rel="noopener noreferrer"
+                           class="w-full flex justify-center items-center gap-2 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg bg-[#25D366] hover:bg-[#20BD5A]">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i> Pedir no WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="text-white mt-12 py-10 bg-[#E3000F]">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
-            
-            <div class="flex flex-col items-center md:items-start gap-2">
-                <div class="flex items-center gap-2 h-8 opacity-90 scale-75 origin-left md:origin-left origin-center">
-                    <span class="text-white font-bold tracking-tight text-4xl" style="font-family: Arial, sans-serif;">Droga</span>
-                    <svg viewBox="0 0 100 100" class="h-10 w-10 overflow-visible mt-1">
-                        <g transform="translate(50, 50)">
-                            <rect x="-20" y="-40" width="40" height="80" rx="20" ry="20" transform="rotate(45)" fill="none" stroke="#002B5E" stroke-width="16" />
-                            <rect x="-20" y="-40" width="40" height="80" rx="20" ry="20" transform="rotate(-45)" fill="none" stroke="#FFFFFF" stroke-width="16" />
-                            <path d="M -15,-15 L 15,15" stroke="#002B5E" stroke-width="16" stroke-linecap="round" />
-                        </g>
-                    </svg>
-                </div>
-                <p class="text-sm opacity-80 mt-2 text-center md:text-left">© 2026 Drogaria Droga X. Todos os direitos reservados.</p>
-            </div>
+    <footer class="text-white py-10 bg-[#002B5E]">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-8 pb-8 border-b border-white/10">
 
-            <div class="flex flex-col items-center md:items-end gap-3">
-                <a href="https://www.drogariadrogax.com.br" class="flex items-center gap-2 text-lg font-medium hover:underline">
-                    <div class="bg-white rounded-full p-0.5 text-[#002B5E]">
-                        <i data-lucide="globe" class="w-5 h-5"></i>
+                <!-- Logo & tagline -->
+                <div class="flex flex-col items-center md:items-start gap-2">
+                    <div class="flex items-center gap-2 h-10">
+                        <span class="text-white font-bold tracking-tight text-3xl" style="font-family: Arial, sans-serif;">Droga</span>
+                        <svg viewBox="0 0 100 100" class="h-8 w-8 overflow-visible mt-1" aria-hidden="true">
+                            <g transform="translate(50, 50)">
+                                <rect x="-20" y="-40" width="40" height="80" rx="20" ry="20" transform="rotate(45)" fill="none" stroke="#E3000F" stroke-width="16" />
+                                <rect x="-20" y="-40" width="40" height="80" rx="20" ry="20" transform="rotate(-45)" fill="none" stroke="#FFFFFF" stroke-width="16" />
+                                <path d="M -15,-15 L 15,15" stroke="#E3000F" stroke-width="16" stroke-linecap="round" />
+                            </g>
+                        </svg>
                     </div>
-                    www.drogariadrogax.com.br
-                </a>
-                <a href="https://instagram.com/drogariadrogax" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm opacity-90 hover:opacity-100 transition-opacity">
-                    <i data-lucide="instagram" class="w-4 h-4"></i> Siga nosso Instagram
-                </a>
+                    <p class="text-sm text-white/60">Saúde e bem-estar para sua família.</p>
+                </div>
+
+                <!-- Links -->
+                <div class="flex flex-col items-center md:items-end gap-3">
+                    <a href="https://www.drogariadrogax.com.br"
+                       class="flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white transition-colors">
+                        <i data-lucide="globe" class="w-4 h-4"></i>
+                        www.drogariadrogax.com.br
+                    </a>
+                    <a href="https://instagram.com/drogariadrogax" target="_blank" rel="noopener noreferrer"
+                       class="flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                        @drogariadrogax
+                    </a>
+                </div>
             </div>
 
+            <p class="text-center text-xs text-white/40">© 2026 Drogaria Droga X. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- Script para renderizar os ícones -->
+    <!-- Botão flutuante WhatsApp -->
+    <div class="whatsapp-float" id="whatsapp-float">
+        <div class="relative group">
+            <div class="absolute -top-10 right-0 bg-gray-800 text-white text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                Fale conosco
+            </div>
+            <button onclick="document.getElementById('unidades').scrollIntoView({behavior:'smooth'})"
+                    aria-label="Ir para nossas unidades"
+                    class="flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl hover:bg-[#20BD5A] hover:scale-110 transition-all">
+                <svg viewBox="0 0 24 24" class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <script>
         lucide.createIcons();
+
+        const floatBtn = document.getElementById('whatsapp-float');
+        window.addEventListener('scroll', () => {
+            floatBtn.classList.toggle('visible', window.scrollY > 300);
+        });
     </script>
 </body>
 </html>
